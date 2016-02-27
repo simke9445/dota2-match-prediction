@@ -1,10 +1,15 @@
 function p = predict(theta, X)
-%PREDICT Predict whether the label is 0 or 1 using learned logistic 
-%regression parameters theta
-%   p = PREDICT(theta, X) computes the predictions for X using a 
-%   threshold at 0.5 (i.e., if sigmoid(theta'*x) >= 0.5, predict 1)
+% params:
+%   theta: weight vector obtained from the training data
+%   X: test set for which we have to compute the output vector
+% return:
+%   p: prediction vector which contains the result of the classification.
+%      the way we classify is:
+%                   - if the sigmoid(theta'.*currentExample) >= 0.5 
+%                     predict class 1, otherwise 0
 
-m = size(X, 1); % Number of training examples
+% Number of training examples
+m = size(X, 1);
 
 p = zeros(m, 1);
 
