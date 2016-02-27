@@ -1,12 +1,17 @@
 function [X_norm, mu, sigma] = featureNormalize(X)
-%FEATURENORMALIZE Normalizes the features in X 
-%   FEATURENORMALIZE(X) returns a normalized version of X where
-%   the mean value of each feature is 0 and the standard deviation
-%   is 1. This is often a good preprocessing step to do when
-%   working with learning algorithms.
+% params:
+%   X: Matrix that needs to scaled
+% return:
+%   X_norm: normalized matrix X
+%   mu: vector of mean values for each of X's features
+%   sigma: vector of standard deviations for each of 
+%          X's features
 
 
 mu = mean(X);
+
+% bsxfun is like apply function, it applies the 
+% function that's passed as a pointer to each element
 X_norm = bsxfun(@minus, X, mu);
 
 sigma = std(X_norm);
